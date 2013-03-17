@@ -17,7 +17,7 @@ def login_user(request):
             if user.is_active:
                 login(request,user)
                 state = "You are successfully Loggedin"
-                return HttpResponseRedirect(reverse('issues:issueshome'))
+                return HttpResponseRedirect(reverse('issues:listissues'))
             else:
                 state= "Your account is not active,Please check with administrator"
         else:

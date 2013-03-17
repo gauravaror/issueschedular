@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{%block content%}
 {% if state %} <p><strong>{{state}}</strong></p>{% endif %}
 <form method="post" action="{%url 'issues:listissues'%}">
     {% csrf_token%}
@@ -8,6 +10,12 @@
 
 {% if issue %}
     {% for item in issue %}
-            <p> {{item.url}} </p>
+        <div id={{item.number}}>
+            <h3><a href="{% url "issues:issueshome" item.number %}">{{item.title}}</a></h3>
+            <p><a href="{%url "issues:issuesupdate" item.number%}">Update Issue</a></p>
+            <p>Submitter: {{item.user.login}}</p>
+            <p> <a href={{item.url}}> Refer issue on github </a>  </p>
+        </div>
     {% endfor %}
 {% endif %}
+{%endblock%}

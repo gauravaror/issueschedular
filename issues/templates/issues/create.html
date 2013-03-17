@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{%block content%}
+<form method="post" action="{%url 'issues:submitissue'%}">
+    {% csrf_token%}
+
+    <label for="title" > Issue Title: </label>
+    <input type="text" name="title" id="title"/><br>
+    
+    <label for="body" > Problem: </label>
+    <input type="text" name="body" id="body"/><br>
+
+
+    <label for="assignee" > Issue Assignee: </label>
+    <input type="text" name="assignee" id="assignee"/><br>
+
+    <label for="milestone" > Issue Milestone: </label>
+    <input type="text" name="milestone" id="milestone"/><br>
+    
+    <label for="label" > Label: </label>
+    <input type="text" name="label" id="label"/><br>
+    
+    <input type="submit" value="Create Issue">
+</form>
+{%endblock%}

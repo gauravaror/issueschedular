@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{%block content%}
+<form method="patch" action="{%url 'issues:submitissue'%}">
+    {% csrf_token%}
+    <input type="hidden" name="number" id="number"value="{{issue.number}}"/><br>
+
+    <label for="title" > Issue Title: </label>
+    <input type="text" name="title" id="title" value="{{issue.title}}"/><br>
+    
+    <label for="body" > Problem: </label>
+    <input type="text" name="body" id="body"value="{{issue.body}}"/><br>
+
+    <label for="assignee" > Issue Assignee: </label>
+    <input type="text" name="assignee" id="assignee" value="{{issue.assignee.login}}"/><br>
+
+    <label for="milestone" > Issue Milestone: </label>
+    <input type="text" name="milestone" id="milestone"value="{{issue.milestone.number}}"/><br>
+    
+    <label for="state" > Issue State: </label>
+    <input type="text" name="state" id="state"value="{{issue.state}}"/><br>
+        
+    <label for="label" > Label: </label>
+    <input type="text" name="label" id="label" value="{{issue.labels}}"/><br>
+    
+    <input type="submit" value="Update Issue">
+</form>
+{%endblock%}
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <title>{% block title %} IssueScheduler  {% endblock %}</title>
+</head>
+
+<body>
+    <h1>IssueScheduler</h1>
+    <h3>Current Repository: {{request.session.repo}} </h3>
+    <div id="sidebar">
+        {% block sidebar %}
+        <ul>
+            <li><a href={%url 'login'%}>Login</a></li>
+            <li><a href={%url 'issues:listissues'%}>List Issues</a></li>
+            <li><a href={%url 'issues:listissues'%}>Change Repo</a></li>
+        </ul>
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+
