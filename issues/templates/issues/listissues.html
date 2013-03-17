@@ -1,0 +1,13 @@
+{% if state %} <p><strong>{{state}}</strong></p>{% endif %}
+<form method="post" action="{%url 'issues:listissues'%}">
+    {% csrf_token%}
+    <label for="repobox" > Repository Name(django/django): </label>
+    <input type="text" name="repo" id="repobox"/>
+    <input type="submit" value="repo">
+</form>
+
+{% if issue %}
+    {% for item in issue %}
+            <p> {{item.url}} </p>
+    {% endfor %}
+{% endif %}
